@@ -6,4 +6,4 @@ access_token_secret=your_access_token_secret
 max_tweets=200
 
 [pdf]
-pdf_folder_path=/Users/user/Library/Mobile Documents/iCloud~com~apple~iBooks/Documents
+pdf_folder_path=/Users/username/Dropbox/Papers
