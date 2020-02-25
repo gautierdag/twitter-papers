@@ -1,0 +1,9 @@
+[twitter]
+consumer_key=your_consumer_key
+consumer_secret=your_consumer_secret
+access_token=your_access_token
+access_token_secret=your_access_token_secret
+max_tweets=200
+
+[pdf]
+pdf_folder_path=/Users/user/Library/Mobile Documents/iCloud~com~apple~iBooks/Documents
