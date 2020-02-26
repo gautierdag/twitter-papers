@@ -88,6 +88,9 @@ def get_arvix_title(arvix_link: str) -> str:
 def download_arvix_pdf(arvix_link: str) -> bool:
     print(f"Downloading link at: {arvix_link}")
 
+    if "pdf" in arvix_link:
+        arvix_link = arvix_link.replace(".pdf", "").replace("pdf", "abs")
+
     # get title of pdf
     title = get_arvix_title(arvix_link)
 
