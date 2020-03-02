@@ -7,3 +7,7 @@ max_tweets=200
 
 [pdf]
 pdf_folder_path=/Users/username/Dropbox/Papers
+
+[cache]
+cache_folder=cache
+cache_file=tweets.p

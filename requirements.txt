@@ -1,5 +1,2 @@
-pandas
-tqdm
 bs4
-pydantic
 tweepy
