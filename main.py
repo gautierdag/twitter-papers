@@ -55,7 +55,7 @@ def parse_urls(tweet: tweepy.Status) -> Set[str]:
     for url_object in tweet.entities["urls"]:
         full_url = url_object["expanded_url"]
 
-        if "arxiv" in full_url:
+        if "arxiv.org/" in full_url:
             # parse case when tweet already links to pdf link
             if "pdf" in full_url:
                 full_url = full_url.replace(".pdf", "").replace("pdf", "abs")
@@ -74,7 +74,9 @@ def get_tweets() -> Set[str]:
     Returns set of unique urls from liked tweets containing `arvix`
     """
     tweets = set()
-    for liked_tweet in tweepy.Cursor(TWITTER_API.favorites).items(MAX_TWEETS):
+    for liked_tweet in tweepy.Cursor(
+        TWITTER_API.favorites, tweet_mode="extended"
+    ).items(MAX_TWEETS):
         tweets |= parse_urls(liked_tweet)
     return tweets
 
@@ -98,6 +100,9 @@ def download_arvix_pdf(arvix_link: str) -> bool:
     First makes a requests to the /abs/ url to get title, then to the pdf
     url to get the file. Finally saves the file to location using the title as name.
     """
+
+    if "abs" not in arvix_link:
+        return True
 
     print(f"Downloading link at: {arvix_link}")
 
